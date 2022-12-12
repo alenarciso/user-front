@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>
+        Cadastro de Usuário
+    </mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="usuario.name" name="name">
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <input matInput placeholder="Sobrenome" [(ngModel)]="usuario.surName" name="surName">
+        </mat-form-field>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Usuário" [(ngModel)]="usuario.userName" name="userName">
+            </mat-form-field>
+    
+            <mat-form-field class="field">
+                <input matInput placeholder="Senha" [(ngModel)]="usuario.password" name="password">
+            </mat-form-field>
+    
+            <mat-form-field class="field">
+                <input matInput placeholder="Email" [(ngModel)]="usuario.email" name="email">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <input matInput placeholder="Telefone" [(ngModel)]="usuario.phone" name="phone">
+        </mat-form-field>
+
+        <mat-checkbox style="margin-left: 10px;" [(ngModel)]="usuario.isEnabled" name="isEnabled">Ativo</mat-checkbox>
+
+    </form>
+</mat-card>
+
+<button  mat-raised-button (click)="salvar()" color="primary">
+    Salvar
+</button>
+
+<button mat-raised-button (click)="voltar()" class="voltar">
+    Voltar
+</button>
+
+
+    

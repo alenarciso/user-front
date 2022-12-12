@@ -1,0 +1,12 @@
+.mouse {
+    cursor: pointer;
+}
+
+.delete > i{
+    color: #e35e6b;
+    margin-right: 10px;
+}
+
+.edit > i{
+    color: #d9cd26;
+}
