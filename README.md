@@ -1,6 +1,6 @@
 # UserFront
 
-O sistema tem como objetivo Cadastrar e Listar usuários
+O sistema tem como objetivo Cadastrar e Listar usuários.
 Abaixo segue uma descrição das ferramentas utilizadas e a usabilidade do sistema
 
 ## Banco de Dados
