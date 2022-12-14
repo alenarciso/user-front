@@ -1,27 +1,69 @@
 # UserFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+O sistema tem como objetivo Cadastrar e Listar usuários
+Abaixo segue uma descrição das ferramentas utilizadas e a usabilidade do sistema
 
-## Development server
+## Banco de Dados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Postgres 12
+Obs: É necessario criar um banco com nome de user. A tabela de usuário não é necessario pois o JPA se encarrega de criar automaticamente
 
-## Code scaffolding
+## Back-End
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Utilizado Spring Boot 3.0
 
-## Build
+Processo de importação
+Clonar o projeto 
+https://github.com/alenarciso/user-back.git
+IDE utilizada Intellij
+Importar
+File - Open e selecionar a pasta do projeto
+Em seguida, para que o projeto reconheça o gerenciador de dependência Maven
+File - New - Project from existing source
+Selecionar o projeto e clicar em ok
+Na tela seguinte selecionar Maven e em seguida clicar em create
+Aguardar carregar as dependencias e na sequencia executar clicando em Run na barra superior da IDE
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Front-End
 
-## Running unit tests
+Ter o node instalado
+Versão utilizada v19.1.0
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+IDE utilizada VSCode
+Processo de importação
+Clonar o projeto 
+https://github.com/alenarciso/user-front.git
+Importar
+Menu Arquivo - Importar pasta
+selecionar o projeto
+No terminado acessar a pasta do projeto e executar
+npm install para instalaras dependencias
+Em seguida npm start para iniciar a aplicação
 
-## Running end-to-end tests
+Acessar a url localhor:4200
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Utilização do sistema
 
-## Further help
+No menu lateral consta duas opções
+Cadastrar Usuários e Listar Usuários.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Cadastrar Usuários
+A tela contem os campos Nome, Sobrenome, Usuario, Senha, Email e Ativo.
+Os campos Nome, Usuário e Senha são obrigatórios.
+O campo data do registro é gerada automaticamente no momento da inserção
+
+OBS: Não foi feito a validação dos campos Email e Telefone
+     o campo Senha não foi criptografado
+
+Ao clicar em salvar o sistema redirecionará para a tela de Lista de Usuário apresentando o novo registro.
+Ao clicar em voltar o sistema redirecionará para a tela de Lista de Usuário
+
+Listar Usuários
+Apresenta um grid com os usuários cadastrados.
+Para cada registro contém as opções de Excluir e Editar
+Ao clicar em Excluir será exibido uma mensagem de confirmação.
+Ao clicar em Editar a tela de Cadastro será chamada com os campos preenchidos permitindo a edição.
+
+A parte superior possui opção de filtar usuários pelo Nome, Usuário ou Email.
+Ao clicar em Filtrar os registros serão filtrados e mostrados no grid.
+
