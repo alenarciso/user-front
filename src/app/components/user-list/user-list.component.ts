@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FilterDTO } from 'src/app/dto/FilterDTO.model';
 import { Usuario } from 'src/app/model/Usuario.model';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +12,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class UserListComponent {
 
-  constructor(private service: UsuarioService) { }
+  constructor(private service: UsuarioService, private dialog: MatDialog) { }
 
   usuarios: Usuario [] = [];
   filterDTO: FilterDTO = {};
@@ -41,9 +43,18 @@ export class UserListComponent {
     });
   }
 
-  excluir(id: number){
-    this.service.delete(id).subscribe(() =>{
-        this.filter();
+  excluir(id: number, nameUser: string){
+
+    let dialogRef = this.dialog.open(DialogDeleteComponent, {
+      data: { name: nameUser },
+    });
+
+    dialogRef.afterClosed().subscribe(resp =>{
+      if(resp === "sim"){
+        this.service.delete(id).subscribe(() =>{
+            this.filter();
+        });
+      }
     });
   }
 }

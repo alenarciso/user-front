@@ -14,6 +14,7 @@ import { MatInputModule }  from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCadComponent } from './components/user-cad/user-cad.component';
+import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { UserCadComponent } from './components/user-cad/user-cad.component';
     NavComponent,
     HeaderComponent,
     UserListComponent,
-    UserCadComponent
+    UserCadComponent,
+    DialogDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,10 @@ import { UserCadComponent } from './components/user-cad/user-cad.component';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
+  entryComponents: [DialogDeleteComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
