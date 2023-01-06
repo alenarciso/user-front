@@ -10,9 +10,9 @@ import { Usuario } from '../model/Usuario.model';
 })
 export class UsuarioService {
 
-  baseUrl = 'https://user-back-production.up.railway.app/user';
+ // baseUrl = 'https://user-back-production.up.railway.app/user';
 
- //baseUrl = 'https://desafio-euax-backend.herokuapp.com/projeto';
+  baseUrl = 'http://localhost:8080/user';
 
   constructor(private http: HttpClient) { }
 

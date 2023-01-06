@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Atenção!</h1>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let message of data.messages"> {{ message }} </li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close="fechar" >Fechar</button>
+</div>

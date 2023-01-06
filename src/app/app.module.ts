@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCadComponent } from './components/user-cad/user-cad.component';
 import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
+import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.
     HeaderComponent,
     UserListComponent,
     UserCadComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    DialogMessageComponent
   ],
   imports: [
     BrowserModule,

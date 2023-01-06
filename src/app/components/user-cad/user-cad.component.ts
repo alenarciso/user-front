@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario.model';
 import { MessageService } from 'src/app/service/message-service.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { DialogMessageComponent } from '../dialog-message/dialog-message.component';
 
 @Component({
   selector: 'app-user-cad',
@@ -12,7 +14,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 export class UserCadComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,private router: Router, 
-    private usuarioService: UsuarioService, private messageService: MessageService) { }
+    private usuarioService: UsuarioService, private messageService: MessageService,
+    private dialog: MatDialog) { }
 
   usuario : Usuario = {}
   idUsuario = 0;
@@ -24,24 +27,21 @@ export class UserCadComponent implements OnInit{
       })
     }
   }
-
-  validarUsuario(): boolean{
-    if((this.usuario.name && this.usuario.name.length > 0) && 
-       (this.usuario.userName && this.usuario.userName.length > 0) &&
-       (this.usuario.password && this.usuario.password.length > 0)){
-        return true;
-    }else{
-      this.messageService.exibir('Os campos Nome, Usuário e Senha são obrigatórios!');
-    }
-    return false;
+ 
+  salvar(): void {
+   let messages = [];
+     this.usuarioService.salvar(this.usuario).subscribe(() =>{
+      this.voltar();
+     }, err =>{
+      messages = err.error.errors;
+      this.message(messages);
+     });
   }
 
-  salvar(): void {
-    if(this.validarUsuario()){
-      this.usuarioService.salvar(this.usuario).subscribe(() =>{
-        this.voltar();
-      });
-    }
+  message(messages: string[]): void{
+    this.dialog.open(DialogMessageComponent, {
+      data: { messages: messages },
+    });
   }
 
   voltar(): void {
