@@ -17,7 +17,7 @@ export class UserListComponent {
   usuarios: Usuario [] = [];
   filterDTO: FilterDTO = {};
   displayedColumns = ["id", "userName", "password", "isEnabled", 
-  "registerDate", "name", "surName", "email", "phone", "acoes"];
+  "registerDate", "name", "surName", "email", "phone", "cpf", "acoes"];
 
   ngOnInit(): void {
     this.filterDTO = {};

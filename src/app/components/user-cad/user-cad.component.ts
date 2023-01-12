@@ -29,13 +29,24 @@ export class UserCadComponent implements OnInit{
   }
  
   salvar(): void {
-   let messages = [];
+    this.verificarCPF();
+    let messages = [];
      this.usuarioService.salvar(this.usuario).subscribe(() =>{
       this.voltar();
      }, err =>{
-      messages = err.error.errors;
+      if(err.statusText && err.statusText === 'Unknown Error'){
+        messages = ["Erro desconhecido. Verifique sua conexão e tente novamente!"];
+      }else{
+        messages = err.error.errors;
+      }
       this.message(messages);
-     });
+    });
+  }
+
+  verificarCPF(): void{
+    if(this.usuario.cpf && this.usuario.cpf?.length == 0){
+      this.usuario.cpf = undefined;
+   }
   }
 
   message(messages: string[]): void{

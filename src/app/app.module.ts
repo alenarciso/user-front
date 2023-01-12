@@ -14,7 +14,11 @@ import { MatInputModule }  from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule }  from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -24,6 +28,11 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCadComponent } from './components/user-cad/user-cad.component';
 import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
+
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt-PT';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -51,10 +60,13 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
     MatButtonModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaskModule.forRoot({dropSpecialCharacters:false}),
   ],
   entryComponents: [DialogDeleteComponent],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'pt-PT' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

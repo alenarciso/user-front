@@ -27,7 +27,18 @@
         </div>
 
         <mat-form-field>
-            <input matInput placeholder="Telefone" [(ngModel)]="usuario.phone" name="phone">
+            <input matInput placeholder="Telefone" [(ngModel)]="usuario.phone" name="phone" mask="(00)0000-0000 || (00)00000-0000">
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <input  matInput placeholder="CPF" [(ngModel)]="usuario.cpf" name="cpf" mask="000.000.000-00">
+        </mat-form-field>  
+        
+        <mat-form-field style="margin-left: 10px;">
+            <mat-label>Data Nascimento</mat-label>
+            <input matInput [matDatepicker]="pickerIni" name="dataNascimento" [(ngModel)]="usuario.birthDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerIni"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #pickerIni></mat-datepicker>
         </mat-form-field>
 
         <mat-checkbox style="margin-left: 10px;" [(ngModel)]="usuario.isEnabled" name="isEnabled">Ativo</mat-checkbox>

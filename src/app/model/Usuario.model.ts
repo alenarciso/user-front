@@ -7,5 +7,7 @@ export interface Usuario{
     surName?: string
     email?: string
     phone?: string
+    birthDate?: Date
+    cpf?: string
     isEnabled?: boolean
 }
